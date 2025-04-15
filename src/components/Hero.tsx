@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowDown, Mail } from "lucide-react";
+import { ArrowDown, Mail, TrendingUp, Calendar, Activity } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/components/ui/use-toast";
@@ -80,52 +80,79 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.7 }}
-            className="relative w-full max-w-xs"
+            className="relative w-full max-w-sm"
           >
-            <div className="glass rounded-2xl p-6 shadow-xl border border-spent-100/50 relative z-10">
-              <div className="text-center mb-6">
-                <h3 className="font-bold text-spent-800 text-lg">Your Spending</h3>
-                <p className="text-sm text-gray-500">Updated just now</p>
+            <div className="bg-white/90 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-spent-100 relative z-10">
+              <div className="flex items-center justify-between mb-8">
+                <div>
+                  <h3 className="font-bold text-spent-800 text-xl">Spent</h3>
+                  <p className="text-sm text-gray-500">Updated now</p>
+                </div>
+                <div className="bg-spent-500/10 p-2 rounded-full">
+                  <Activity className="h-6 w-6 text-spent-600" />
+                </div>
               </div>
               
-              <div className="space-y-5">
+              <div className="space-y-6">
                 {/* Today */}
                 <motion.div 
-                  className="number-card" 
+                  className="bg-gradient-to-r from-white to-spent-50 rounded-2xl p-6 border border-spent-100 shadow-sm"
                   initial={{ scale: 0.9, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   transition={{ delay: 0.4 }}
                 >
-                  <span className="text-gray-600 font-medium">Today</span>
-                  <span className="text-3xl font-bold text-spent-900">$42</span>
+                  <div className="flex justify-between items-center">
+                    <div className="flex items-center gap-3">
+                      <div className="bg-spent-100 p-2 rounded-lg">
+                        <Calendar className="h-5 w-5 text-spent-700" />
+                      </div>
+                      <span className="text-gray-600 font-medium">Today</span>
+                    </div>
+                    <span className="text-3xl font-bold text-spent-900">$42</span>
+                  </div>
                 </motion.div>
                 
                 {/* Week */}
                 <motion.div 
-                  className="number-card" 
+                  className="bg-gradient-to-r from-white to-spent-50 rounded-2xl p-6 border border-spent-100 shadow-sm"
                   initial={{ scale: 0.9, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   transition={{ delay: 0.6 }}
                 >
-                  <span className="text-gray-600 font-medium">Week</span>
-                  <span className="text-3xl font-bold text-spent-900">$319</span>
+                  <div className="flex justify-between items-center">
+                    <div className="flex items-center gap-3">
+                      <div className="bg-spent-200 p-2 rounded-lg">
+                        <Calendar className="h-5 w-5 text-spent-700" />
+                      </div>
+                      <span className="text-gray-600 font-medium">Week</span>
+                    </div>
+                    <span className="text-3xl font-bold text-spent-900">$319</span>
+                  </div>
                 </motion.div>
                 
                 {/* Month */}
                 <motion.div 
-                  className="number-card" 
+                  className="bg-gradient-to-r from-white to-spent-50 rounded-2xl p-6 border border-spent-100 shadow-sm"
                   initial={{ scale: 0.9, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   transition={{ delay: 0.8 }}
                 >
-                  <span className="text-gray-600 font-medium">Month</span>
-                  <span className="text-3xl font-bold text-spent-900">$1,843</span>
+                  <div className="flex justify-between items-center">
+                    <div className="flex items-center gap-3">
+                      <div className="bg-spent-300 p-2 rounded-lg">
+                        <Calendar className="h-5 w-5 text-spent-700" />
+                      </div>
+                      <span className="text-gray-600 font-medium">Month</span>
+                    </div>
+                    <span className="text-3xl font-bold text-spent-900">$1,843</span>
+                  </div>
                 </motion.div>
               </div>
             </div>
             
-            {/* Decorative shadow */}
-            <div className="absolute -z-10 w-full h-full bg-spent-100/30 rounded-2xl -right-3 -bottom-3 shadow-xl"></div>
+            {/* Decorative elements */}
+            <div className="absolute -z-10 w-full h-full bg-spent-100/30 rounded-3xl -right-5 -bottom-5 shadow-xl"></div>
+            <div className="absolute -z-20 w-[90%] h-[95%] bg-spent-200/20 rounded-3xl right-8 -bottom-9 blur-sm shadow-xl"></div>
           </motion.div>
         </div>
       </div>
