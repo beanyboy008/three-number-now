@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,6 +62,19 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				spent: {
+					'50': '#f3f2ff',
+					'100': '#e9e6ff',
+					'200': '#d4ceff',
+					'300': '#b5a6ff',
+					'400': '#9173ff',
+					'500': '#7c49ff',
+					'600': '#7028ff',
+					'700': '#6119f5',
+					'800': '#5217cb',
+					'900': '#4416a3',
+					'950': '#290c6a',
 				}
 			},
 			borderRadius: {
@@ -84,11 +98,24 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'float': {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-10px)' },
+				},
+				'fadeIn': {
+					'0%': { opacity: '0' },
+					'100%': { opacity: '1' },
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'float': 'float 5s ease-in-out infinite',
+				'fadeIn': 'fadeIn 0.8s ease-in'
+			},
+			backgroundImage: {
+				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
 			}
 		}
 	},
