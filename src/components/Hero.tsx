@@ -1,11 +1,34 @@
 
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowDown } from "lucide-react";
+import { ArrowDown, Mail } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { useToast } from "@/components/ui/use-toast";
 
 const Hero = () => {
+  const [email, setEmail] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const { toast } = useToast();
+
   const scrollToFeatures = () => {
     const features = document.getElementById("features");
     features?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsLoading(true);
+    
+    // Simulate API call
+    setTimeout(() => {
+      toast({
+        title: "Success!",
+        description: "You've been added to the Spent waitlist.",
+      });
+      setEmail("");
+      setIsLoading(false);
+    }, 1500);
   };
 
   return (
@@ -25,6 +48,28 @@ const Hero = () => {
         <p className="text-xl md:text-2xl text-gray-700 max-w-2xl mx-auto">
           A finance app that shows only what you need to know: what you spent today, this week, and this month.
         </p>
+        
+        {/* Waitlist Form */}
+        <form onSubmit={handleSubmit} className="max-w-md mx-auto flex flex-col sm:flex-row gap-3 mt-8">
+          <div className="flex-1">
+            <Input
+              type="email"
+              placeholder="Enter your email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              className="w-full border-spent-200 focus:ring-spent-500"
+              icon={Mail}
+            />
+          </div>
+          <Button 
+            type="submit" 
+            disabled={isLoading}
+            className="bg-spent-600 hover:bg-spent-700 text-white"
+          >
+            {isLoading ? "Joining..." : "Join Waitlist"}
+          </Button>
+        </form>
         
         <div className="flex justify-center gap-6 pt-6">
           {/* Today */}
