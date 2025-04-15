@@ -40,7 +40,7 @@ const Hero = () => {
       <div className="absolute w-72 h-72 rounded-full bg-spent-200/30 blur-3xl -top-10 -left-20 animate-float" />
       <div className="absolute w-64 h-64 rounded-full bg-spent-300/20 blur-3xl bottom-40 -right-20 animate-float" style={{ animationDelay: "-2s" }} />
       
-      <div className="max-w-5xl mx-auto flex flex-col-reverse md:flex-row items-center gap-8 md:gap-16 animate-fadeIn">
+      <div className="max-w-6xl mx-auto flex flex-col-reverse md:flex-row items-center gap-12 md:gap-16 animate-fadeIn">
         {/* Left content */}
         <div className="w-full md:w-1/2 text-center md:text-left space-y-8">
           <h1 className="heading-xl bg-gradient-to-br from-spent-800 to-spent-600 text-transparent bg-clip-text">
@@ -80,15 +80,15 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.7 }}
-            className="relative"
+            className="relative w-full max-w-xs"
           >
-            <div className="glass rounded-xl p-5 shadow-xl max-w-xs w-full">
-              <div className="text-center mb-8">
+            <div className="glass rounded-2xl p-6 shadow-xl border border-spent-100/50 relative z-10">
+              <div className="text-center mb-6">
                 <h3 className="font-bold text-spent-800 text-lg">Your Spending</h3>
                 <p className="text-sm text-gray-500">Updated just now</p>
               </div>
               
-              <div className="space-y-6">
+              <div className="space-y-5">
                 {/* Today */}
                 <motion.div 
                   className="number-card" 
@@ -124,12 +124,13 @@ const Hero = () => {
               </div>
             </div>
             
-            {/* Decorative elements */}
-            <div className="absolute -z-10 w-full h-full bg-spent-100/30 rounded-xl -right-3 -bottom-3"></div>
+            {/* Decorative shadow */}
+            <div className="absolute -z-10 w-full h-full bg-spent-100/30 rounded-2xl -right-3 -bottom-3 shadow-xl"></div>
           </motion.div>
         </div>
       </div>
       
+      {/* Scroll down arrow */}
       <div 
         onClick={scrollToFeatures}
         className="absolute bottom-10 cursor-pointer animate-bounce"
